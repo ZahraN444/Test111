@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.test</groupId>
   <artifactId>acme-test</artifactId>
-  <version>4.5.3</version>
+  <version>4.4.4</version>
   <packaging>jar</packaging>
   <name>projectjava</name>
   <description>test</description>
