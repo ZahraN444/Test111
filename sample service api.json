@@ -1,0 +1,139 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "The Sample Service API",
+    "description": "Send errors to Rollbar or Sentry",
+    "contact": {},
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://sample-service.backstage-demo.roadie.io",
+      "description": "A plublic instance which anyone can hit to generate sample data.",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Return Hello World",
+        "description": "",
+        "operationId": "ReturnHelloWorld",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "A JSON object with a message key and Hello World value.",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "message": "Hello world!"
+                  }
+                },
+                "example": {
+                  "message": "Hello world!"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/debug-sentry": {
+      "post": {
+        "summary": "Send an error to Sentry",
+        "description": "",
+        "operationId": "SendanerrortoSentry",
+        "parameters": [],
+        "requestBody": {
+          "description": "Optional error text to send to Sentry.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Optional error text to send to Sentry.",
+                "example": {
+                  "errorMessage": "My first Sentry Error"
+                }
+              },
+              "example": {
+                "errorMessage": "My first Sentry Error"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Confirmation that the error was sent.",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "message": "Error sent to Sentry: \"My first error\""
+                  }
+                },
+                "example": {
+                  "message": "Error sent to Sentry: \"My first error\""
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/debug-rollbar": {
+      "post": {
+        "summary": "Send an error to Rollbar",
+        "description": "",
+        "operationId": "SendanerrortoRollbar",
+        "parameters": [],
+        "requestBody": {
+          "description": "Optional error text to send to Rollbar.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Optional error text to send to Rollbar.",
+                "example": {
+                  "errorMessage": "My first Rollbar Error"
+                }
+              },
+              "example": {
+                "errorMessage": "My first Rollbar Error"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Confirmation that the error was sent.",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "message": "Error sent to Rollbar: \"My first error\""
+                  }
+                },
+                "example": {
+                  "message": "Error sent to Rollbar: \"My first error\""
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "tags": []
+}
